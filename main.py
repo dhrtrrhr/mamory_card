@@ -1,5 +1,8 @@
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import*
+import random
+import pityh
+
 app = QApplication([])
 window = QWidget()
 window.resize(500,500)
@@ -14,7 +17,7 @@ knopka2 = QPushButton("Відпочити")
 knopka_lbl = QPushButton("Відповісти")
 asd = QSpinBox()
 nadpus = QLabel("хвилин")
-quest = QLabel("Яблуко")
+quest_lbl = QLabel("Яблуко")
 group=QGroupBox()
 qwa = QLabel("Варіанти відповідей:")
 an1 = QRadioButton("bulding")
@@ -32,7 +35,7 @@ main_line2.addWidget(knopka2)
 main_line2.addWidget(asd)
 main_line2.addWidget(nadpus)
 main_line.addLayout(main_line2)
-main_line.addWidget(quest, alignment=Qt.AlignmentFlag.AlignHCenter)
+main_line.addWidget(quest_lbl, alignment=Qt.AlignmentFlag.AlignHCenter)
 
 group_line.addWidget(qwa)
 main_line3.addWidget(an1)
@@ -46,6 +49,34 @@ group.setLayout(group_line)
 main_line.addWidget(group)
 main_line.addWidget(knopka_lbl)
 main_line.addWidget(knopka21)
+
+
+answers = [an1,an2,an3,an4]
+def set_quest():
+    random.shuffle(answers)
+    quest = pityh.questions[pityh.number]
+    quest_lbl.setText(quest["Запитання"])
+    answers[0].setText(quest["Відповідь"])
+    answers[1].setText(quest["Неправильна Відповідь"])
+
+set_quest()
+
+def ans_func():
+    answers[0].hide()
+    answers[1].hide()
+    knopka_lbl.hide()
+    nadpus2.show()
+    if answers[0].isChecked():
+        nadpus2.setText("Правильно")
+    else:
+        nadpus2.setText("Неправильно")
+nadpus2.clicked.connect(ans_func("Неправильно"))
+
+
+
+
+
+
 
 window.setLayout(main_line)
 window.show()
