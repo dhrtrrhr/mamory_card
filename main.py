@@ -1,6 +1,7 @@
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import*
 import random
+import menu
 import pityh
 
 app = QApplication([])
@@ -58,6 +59,8 @@ def set_quest():
     quest_lbl.setText(quest["Запитання"])
     answers[0].setText(quest["Відповідь"])
     answers[1].setText(quest["Неправильна Відповідь"])
+    answers[2].setText(quest["Неправильна Відповідь"])
+    answers[3].setText(quest["Неправильна Відповідь"])
 
 set_quest()
 
@@ -70,9 +73,9 @@ def ans_func():
         nadpus2.setText("Правильно")
     else:
         nadpus2.setText("Неправильно")
-nadpus2.clicked.connect(ans_func("Неправильно"))
+knopka_lbl.clicked.connect(ans_func)
 
-
+knopka1.clicked.connect(menu.menu_window)
 
 
 
