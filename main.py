@@ -71,12 +71,20 @@ def ans_func():
     nadpus2.show()
     if answers[0].isChecked():
         nadpus2.setText("Правильно")
+        knopka21.show()
+
+
+
     else:
         nadpus2.setText("Неправильно")
 knopka_lbl.clicked.connect(ans_func)
 
 knopka1.clicked.connect(menu.menu_window)
 
+def next_func ():
+    pityh.number += 1
+    set_quest()
+menu.add_lbl.clicked.connect(next_func)
 
 
 
