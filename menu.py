@@ -52,8 +52,8 @@ def menu_window():
     def add_func():
         pityh.questions.append(
             {
-       "Запитання": quest_lbl.text(),
-       "Відповідь": right_answer.text(),
+       "Запитання": quest_input.text(),
+       "Відповідь": right_input.text(),
        "Неправильна Відповідь": wrong_answer1.text(),
        "Неправильна Відповідь2": wrong_answer2.text(),
        "Неправилина Відповідь3": wrong_answer3.text(),

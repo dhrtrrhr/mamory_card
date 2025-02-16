@@ -28,7 +28,7 @@ an4 = QRadioButton("caterpillar")
 nadpus2 = QLabel("Результат")
 nadpus2.hide()
 knopka21 = QPushButton("Наступне завдання")
-knopka21.hide()
+knopka21
 
 main_line2.addWidget(knopka1)
 main_line2.addStretch(1)
@@ -84,7 +84,7 @@ knopka1.clicked.connect(menu.menu_window)
 def next_func ():
     pityh.number += 1
     set_quest()
-menu.add_lbl.clicked.connect(next_func)
+knopka21.clicked.connect(next_func)
 
 
 
